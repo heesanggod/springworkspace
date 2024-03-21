@@ -28,7 +28,8 @@ public class RequestDataController {
     public String getRequestParam(
             @RequestParam(name = "userId") String userId,
             @RequestParam(name = "userName", required = false) String userName,
-            @RequestParam() int userAge) {
+            @RequestParam() int userAge
+            ) {
         return "사용자 아이디 : " + userId + " / 사용자 이름 : " + userName + " / 사용자 나이 : " + userAge;
     }
 
@@ -43,14 +44,16 @@ public class RequestDataController {
     // http://localhost:4000/request-data/path-variable/10
     public String deletePathVariable(
             @PathVariable("age") Integer age,
-            @PathVariable(name = "name", required = false) String name) {
+            @PathVariable(name = "name", required = false) String name
+            ) {
         return "사용자 나이 : " + age + " / 사용자 이름 :" + name;
     }
 
     // HTTP PATCH localhost:4000/request-data/patch/{userName}/update
     @PatchMapping("/patch/{userName}/update")
     public String patchUpdate(
-            @PathVariable("userName") String userName) {
+            @PathVariable("userName") String userName
+            ) {
         return "사용자 이름 : " + userName;
     }
 
@@ -59,13 +62,15 @@ public class RequestDataController {
     // 겹치는 패턴이 존재하는지 잘 확인 해야 함
     @GetMapping("/{value}/get")
     public String getPathVariable1(
-            @PathVariable("value") String value) {
+            @PathVariable("value") String value
+            ) {
         return "getPathVariable1";
     }
 
     @GetMapping("/get/{value}")
     public String getPathVariable2(
-            @PathVariable("value") String value) {
+            @PathVariable("value") String value
+            ) {
         return "getPathVariable2";
     }
 
@@ -77,7 +82,8 @@ public class RequestDataController {
     public String post(
             // @RequestBody String text
             // @Valid : 해당 payload에 대해서 유효성 검사를 실시하도록 함
-            @RequestBody @Valid SampleDto dto) {
+            @RequestBody @Valid SampleDto dto
+            ) {
         return "전송한 데이터 : " + dto.toString();
     }
 
