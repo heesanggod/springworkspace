@@ -19,7 +19,7 @@ import jakarta.validation.Valid;
 @RequestMapping("/request-data")
 public class RequestDataController {
 
-    // @RequsetParam() : GET, DELETE 처럼 URL로 데이터를 전송하는 Query String 으로 지정된
+    // @RequestParam() : GET, DELETE 처럼 URL로 데이터를 전송하는 Query String 으로 지정된
     // 데이터를 가져오기 위해 사용
 
     // HTTP GET localhost:4000/request-data/request-param
