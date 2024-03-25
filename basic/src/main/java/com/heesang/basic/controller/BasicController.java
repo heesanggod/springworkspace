@@ -1,5 +1,7 @@
 package com.heesang.basic.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -11,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.heesang.basic.service.BasicService;
 import com.heesang.basic.service.implement.BasicServiceImplement;
+
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 // Controller 레이어 :
 // - 클라이언트와 서버간의 접점
@@ -25,9 +30,20 @@ import com.heesang.basic.service.implement.BasicServiceImplement;
 
 // HTTP GET localhost:4000/main/**
 @RequestMapping("/main")
+@RequiredArgsConstructor    // final 로 지정된것에 대한 필드를 지정해줌
+// @AllArgsConstructor
 public class BasicController {
 
-    BasicService service = new BasicServiceImplement();
+    // Private BasicService service;
+
+    // @Autowired 걸어줘야되지만..?
+    // public BasicController(BasicService service) {
+    //     this.service = service;
+    // }
+
+    private final BasicService service;     // service 변수는 초기화가 이루어져야 한다.
+
+    // BasicService service = new BasicServiceImplement();
 
     // HTTP GET localhost:4000/main/
     @RequestMapping(value = "/", method = { RequestMethod.GET })
