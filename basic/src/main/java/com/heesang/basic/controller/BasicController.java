@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.heesang.basic.service.BasicService;
+import com.heesang.basic.service.implement.BasicServiceImplement;
+
 // Controller 레이어 :
 // - 클라이언트와 서버간의 접점
 // - 클라이언트의 요청을 받고 해당 요청에 대한 응답을 클라이언트에 돌려주는 영역
@@ -24,6 +27,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/main")
 public class BasicController {
 
+    BasicService service = new BasicServiceImplement();
+
     // HTTP GET localhost:4000/main/
     @RequestMapping(value = "/", method = { RequestMethod.GET })
     public String getHello() {
@@ -36,7 +41,7 @@ public class BasicController {
     // @GetMapping() : RequestMapping 기능을 GET Method에 한정시킨 것 (가독성 + 안정성)
     @GetMapping("/apple")
     public String getApple() {
-        return "Get Mapping 으로 만든 메서드";
+        return service.getApple();
     }
 
     // HTTP POST Method : 클라이언트가 서버에 데이터를 작성하기 원할 때 사용하는 메서드
