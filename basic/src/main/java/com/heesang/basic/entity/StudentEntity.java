@@ -1,5 +1,7 @@
 package com.heesang.basic.entity;
 
+import com.heesang.basic.dto.request.student.PostStudentRequestDto;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -54,4 +56,11 @@ public class StudentEntity {
     private Integer age;   // NULL 값을 넣을려고
     private String address;
     private Boolean graduation;
+
+    public StudentEntity(PostStudentRequestDto dto) {
+        this.name = dto.getName();
+        this.age = dto.getAge();
+        this.address = dto.getAddress();
+        this.graduation = dto.getGraduation();
+    }
 }
