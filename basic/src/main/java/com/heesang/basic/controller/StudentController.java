@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.heesang.basic.dto.request.student.PatchStudentRequestDto;
 import com.heesang.basic.dto.request.student.PostStudentRequestDto;
 import com.heesang.basic.service.StudentService;
 
@@ -25,16 +26,19 @@ public class StudentController {
     // CREATE
     @PostMapping("/")
     public ResponseEntity<String> postStudent (
-        @RequestBody @Valid PostStudentRequestDto requestbody
+        @RequestBody @Valid PostStudentRequestDto requestBody
     ) {
-        ResponseEntity<String> response = studentService.postStudent(requestbody);
+        ResponseEntity<String> response = studentService.postStudent(requestBody);
         return response;
     }
 
     // UPDATE 
     @PatchMapping("/")
-    public ResponseEntity<?> patchStudent () {
-        return null;
+    public ResponseEntity<String> patchStudent (
+        @RequestBody @Valid PatchStudentRequestDto requestBody
+    ) { //                           유형성 검사
+        ResponseEntity<String> response = studentService.patchStudent(requestBody);
+        return response;
     }
 
     // DELETE 
