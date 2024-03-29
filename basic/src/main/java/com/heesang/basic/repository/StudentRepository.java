@@ -22,6 +22,6 @@ public interface StudentRepository
 // - 매개타입 T : 해당 Repository가 어떤 Entity의 Repository인지 나타내는 매개타입
 // - 매개타입 ID : 해당 Repository에서 사용하는 Entity의 Primary key 데이터 타입을 지정하는 매개타입
 extends JpaRepository<StudentEntity, Integer> {
-
+    // Student 테이블에서 address가 '서울특별시'인 레코드를 조회
     
 }
