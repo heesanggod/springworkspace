@@ -11,6 +11,6 @@ public interface BoardService {
 
     ResponseEntity<? super GetLatestListResponseDto> getLatestList();
 
-    ResponseEntity<String> postBoard( PostBoardRequestDto requestBody);
+    ResponseEntity<String> postBoard( PostBoardRequestDto dto);
     
 }
