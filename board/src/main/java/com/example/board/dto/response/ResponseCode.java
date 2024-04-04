@@ -2,7 +2,7 @@ package com.example.board.dto.response;
 
 public interface ResponseCode {
     String SUCCESS = "SU";
-    String VALIDATION_FAILED = "VK";
+    String VALIDATION_FAIL = "VK";
     String DUPLICATE_EMAIL = "DE";
     String DUPLICATE_NICKNAME = "DN";
     String DUPLICATE_TEL_NUMBER = "DT";
