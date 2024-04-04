@@ -48,6 +48,9 @@ public class ResponseDto {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
     }
 
-
+    public static ResponseEntity<ResponseDto> authorizationFailed () {
+        ResponseDto body = new ResponseDto(ResponseCode.AUTHORIZATION_FAIL, ResponseMessage.AUTHORIZATION_FAIL);
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(body);
+    }
 
 }

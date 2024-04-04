@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.board.dto.request.user.PatchNicknameRequestDto;
+import com.example.board.dto.response.ResponseDto;
 import com.example.board.dto.response.board.GetUserResponseDto;
 import com.example.board.service.UserService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -27,5 +30,11 @@ public class UserController {
         return response;
     }
 
-    @PatchMapping
+    @PatchMapping("/nickname")
+    public ResponseEntity<ResponseDto> patchNickname (
+        @PathVariable @Valid PatchNicknameRequestDto requestbody
+    ) {
+        ResponseEntity<ResponseDto> response = userService.patchNickname(requestbody);
+        return response;
+    }
 }
