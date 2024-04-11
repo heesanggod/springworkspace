@@ -9,5 +9,6 @@ public interface BasicService {
         String getHello();
         String getApple();
         
+        String getJwt(String principle);
 
 }
