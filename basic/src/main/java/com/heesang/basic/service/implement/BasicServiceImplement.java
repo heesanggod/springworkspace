@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BasicServiceImplement implements BasicService {
 
-    private final JwtProvider jwtProvider =  new JwtProvider();
+    private final JwtProvider jwtProvider;    // new = 직접 생성 해버리면 spring 으로 넘기지 못해서 실행 안됨
 
     @Override
     public String getHello() {
@@ -34,6 +34,11 @@ public class BasicServiceImplement implements BasicService {
     @Override
     public String getJwt(String principle) {
         return jwtProvider.create(principle);
+    }
+
+    @Override
+    public String jwtValidate(String jwt) {
+        return jwtProvider.validation(jwt);
     }
     
 }
