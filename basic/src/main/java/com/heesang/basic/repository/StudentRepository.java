@@ -116,6 +116,7 @@ List<StudentEntity> getStudent2(Integer studentNumber, Integer age);
                     @Param("age") Integer age
                     );
 
+                    StudentEntity findByStudentNumber (Integer studentNumber);
 
 
 }
