@@ -35,11 +35,11 @@ public class StudentServiceImplement implements StudentService {
     @Override
     public ResponseEntity<String> postStudent(PostStudentRequestDto dto) {
 
-        // 패스워드 암호화 작업  // ??
-        String password = dto.getPassword();  // localhost에 보내져 dto에 저장된 패스워드를 평문화된 패스워드로 받아옴
-        String encodePassword = passwordEncoder.encode(password);  // 평문화된 패스워드를 encodePassword로 암호화된 패스워드로 바꿈
+        // 패스워드 암호화 작업
+        String password = dto.getPassword();  // * localhost에 보내져 dto에 저장된 패스워드를 평문화된 패스워드로 받아옴
+        String encodePassword = passwordEncoder.encode(password);  //* 평문화된 패스워드를 encodePassword로 암호화된 패스워드로 바꿈
 
-        dto.setPassword(encodePassword);  // 암호화된 패스워드를 dto에 보냄
+        dto.setPassword(encodePassword);  // * 암호화된 패스워드를 dto에 보냄
 
         // CREATE (SQL : INSERT)
         // 1. Entity 클래스의 인스턴스 생성
